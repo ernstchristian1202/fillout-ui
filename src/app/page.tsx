@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-between items-center min-h-lvh bg-workspace p-4">
-      <PageNav pages={pages} />
+      <PageNav className="shadow-cmd" pages={pages} />
 
       <div className="text-orange">
         Created by Ernst Christian Catedral.

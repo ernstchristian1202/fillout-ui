@@ -12,6 +12,7 @@ const config: Config = {
         sans: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
+        "text": "#1A1A1A",
         "dash": "#C0C0C0",
         "gray": "#9DA4B2",
         "gray-o15": "#9DA4B226",
@@ -24,6 +25,7 @@ const config: Config = {
       },
       boxShadow: {
         'navitem': '0px 1px 3px 0px rgba(0, 0, 0, 0.04), 0px 1px 1px 0px rgba(0, 0, 0, 0.02)',
+        'cmd': '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5)',
       },
       letterSpacing: {
         tightest: '-0.015em',

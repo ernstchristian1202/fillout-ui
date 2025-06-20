@@ -26,7 +26,7 @@ const PageNavNewItem = ({
         ${hidden && 'opacity-0'}
         inline-flex items-center
         transition-all duration-300
-        font-sans font-medium text-sm tracking-tightest
+        text-text font-sans font-medium text-sm tracking-tightest
         bg-white hover:bg-gray-o15            
         border border-gray focus:border-blue
         px-2.5 py-1 rounded-lg select-none

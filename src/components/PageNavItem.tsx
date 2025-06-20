@@ -78,7 +78,7 @@ const PageNavItem = ({
                 ? `
                   inline-flex items-center
                   transition-all duration-300
-                  font-sans font-medium text-sm tracking-tightest
+                  text-text font-sans font-medium text-sm tracking-tightest
                   bg-white hover:bg-gray-o15            
                   border border-gray focus:border-blue
                   px-2.5 py-1 rounded-lg select-none
@@ -87,7 +87,7 @@ const PageNavItem = ({
                 : `
                   inline-flex items-center
                   transition-all duration-300
-                  font-sans font-medium text-sm tracking-tightest
+                  text-dark-gray font-sans font-medium text-sm tracking-tightest
                   bg-gray-o15 hover:bg-gray-o35            
                   border border-transparent
                   px-2.5 py-1 rounded-lg select-none            
@@ -109,7 +109,7 @@ const PageNavItem = ({
         {isContextMenu && (
           <Popover.Portal>
             <Popover.Content
-              className="min-w-[240px] w-48 mb-[9px] rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden"
+              className="text-text min-w-[240px] w-48 mb-[9px] rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden"
               side="top"
               align="start"
             >

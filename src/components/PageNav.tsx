@@ -33,10 +33,12 @@ export interface PageItem {
 
 type PageNavProps = {
   pages?: PageItem[];
+  className?: string;
 };
 
 const PageNav = ({
-  pages: initPages = []
+  pages: initPages = [],
+  className = ''
 }: PageNavProps) => {
   const [isPromptOpen, setPromptOpen] = useState(false);
   const [addingIndex, setAddingIndex] = useState(0);
@@ -101,7 +103,7 @@ const PageNav = ({
       collisionDetection={closestCenter}
       onDragStart={handleDragStart} onDragEnd={handleDragEnd}
     >
-      <div className="flex items-center p-2 bg-white">
+      <div className={`flex items-center p-2 bg-white ${className}`}>
         <SortableContext
           items={pages.map(item => item.id)}
           strategy={horizontalListSortingStrategy}
