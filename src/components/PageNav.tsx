@@ -3,14 +3,13 @@
 import { ReactElement, useState } from 'react';
 import PageNavItem from './PageNavItem';
 import PageNavGapItem from './PageNavGapItem';
-import { CircleCheck, FileText, Info, Plus } from 'lucide-react';
+import { FileText, Plus } from 'lucide-react';
 import PromptModal from './PromptModal';
 import PageNavNewItem from './PageNavNewItem';
 import {
   DndContext,
   closestCenter,
   KeyboardSensor,
-  PointerSensor,
   useSensor,
   useSensors,
   MouseSensor,
@@ -18,7 +17,6 @@ import {
   DragOverlay,
   DragEndEvent,
   DragStartEvent,
-  UniqueIdentifier,
 } from "@dnd-kit/core";
 import {
   arrayMove,
@@ -35,12 +33,10 @@ export interface PageItem {
 
 type PageNavProps = {
   pages?: PageItem[];
-  onSwitchedPage?: (page: PageItem, index: number) => void;
 };
 
 const PageNav = ({
-  pages: initPages = [],
-  onSwitchedPage: onSwitchedPage
+  pages: initPages = []
 }: PageNavProps) => {
   const [isPromptOpen, setPromptOpen] = useState(false);
   const [addingIndex, setAddingIndex] = useState(0);
@@ -120,7 +116,6 @@ const PageNav = ({
                 isActive={activePage === page}
                 onClick={() => {
                   setActivePage(page);
-                  onSwitchedPage && onSwitchedPage(page, index);
                 }}
               >
                 {page.title}

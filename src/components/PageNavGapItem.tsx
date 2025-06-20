@@ -1,7 +1,7 @@
 'use client';
 
-import { CirclePause, CirclePlus, EllipsisVertical, Plus } from 'lucide-react';
-import { MouseEventHandler, ReactNode, useRef, useState } from 'react';
+import { Plus } from 'lucide-react';
+import { MouseEventHandler, useRef, useState } from 'react';
 
 type PageNavItemProps = {
   hidden?: boolean;

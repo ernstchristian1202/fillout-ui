@@ -1,6 +1,6 @@
 'use client';
 
-import { cloneElement, MouseEventHandler, ReactElement, ReactNode, useEffect, useLayoutEffect, useRef, useState  } from 'react';
+import { cloneElement, MouseEventHandler, ReactElement, ReactNode, useEffect, useState  } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from "@dnd-kit/utilities";
 import { Clipboard, Copy, EllipsisVertical, Flag, PenLine, Trash2 } from 'lucide-react';
@@ -12,7 +12,6 @@ type PageNavItemProps = {
   isActive?: boolean;
   icon?: ReactElement ;
   onClick?: MouseEventHandler | undefined;
-  onSize?: (id: string, size: { width: number; height: number }) => void;
 };
 
 const PageNavItem = ({
@@ -21,7 +20,6 @@ const PageNavItem = ({
   icon,
   isActive = false,
   onClick,
-  onSize
 }: PageNavItemProps) => {
 
   const {
@@ -35,21 +33,12 @@ const PageNavItem = ({
   } = useSortable({ id });
 
   const [isContextMenu, setIsContextMenu] = useState<boolean>(false)
-  const measureRef = useRef<HTMLDivElement | null>(null);
-  const [size, setSize] = useState<{width: number, height: number}>({ width: 0, height: 0 })
 
   useEffect(() => {
     if (!isActive) {
       setIsContextMenu(isActive)
     }
   }, [isActive])
-
-  useLayoutEffect(() => {
-    if (measureRef.current ) {
-      const rect = measureRef.current.getBoundingClientRect();
-      setSize({ width: rect.width, height: rect.height })
-    }
-  }, [isActive]);
 
   const style = {
     transform: CSS.Transform.toString(transform && {
@@ -75,10 +64,7 @@ const PageNavItem = ({
     <Popover.Root open={isContextMenu} onOpenChange={setIsContextMenu}>
       <div
         className="relative"
-        ref={(node) => {
-          setNodeRef(node);
-          measureRef.current = node;
-        }}
+        ref={setNodeRef}
         {...attributes}
         {...listeners}
         style={{
